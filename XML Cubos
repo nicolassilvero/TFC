@@ -1,0 +1,232 @@
+<Schema name="Juzgado de Violencia Familiar" measuresCaption="Medidas">
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Ocupacion" caption="Ocupacion">
+        <Hierarchy name="todas" visible="true" hasAll="true" allMemberName="todas" primaryKey="id_dim_ocupacion" caption="Todas las Ocupaciones">
+            <Table name="dim_ocupacion">
+            </Table>
+            <Level name="nombre" visible="true" column="id_dim_ocupacion" nameColumn="nombre" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Ocupacion" captionColumn="nombre">
+            </Level>
+        </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Genero" caption="Genero">
+        <Hierarchy name="todos" visible="true" hasAll="true" allMemberName="todos" primaryKey="id_dim_genero" caption="Todos los Generos">
+            <Table name="dim_genero">
+            </Table>
+            <Level name="descripcion" visible="true" column="id_dim_genero" nameColumn="descripcion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Genero" captionColumn="descripcion">
+            </Level>
+        </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tiempo" caption="Tiempo">
+        <Hierarchy name="todos" visible="true" hasAll="true" allMemberCaption="Todos los años" primaryKey="id_tiempo">
+            <Table name="dim_tiempo">
+            </Table>
+            <Level name="Año" visible="true" column="anio" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+            </Level>
+            <Level name="Trimestre" visible="true" column="trimestre" nameColumn="trimestre_desc" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never" caption="Trimestre" captionColumn="trimestre_desc">
+            </Level>
+            <Level name="Mes" visible="true" column="mes" nameColumn="mes_desc" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="Mes" captionColumn="mes_desc">
+            </Level>
+        </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Ubicacion" caption="Ubicacion Geografica">
+        <Hierarchy name="todas" visible="true" hasAll="true" allMemberName="todas" primaryKey="id_dimUbicacion" caption="Todas las Ubicaciones">
+            <Table name="dim_ubicacion">
+            </Table>
+            <Level name="Circunscripcion" visible="true" column="id_circunscripcion" nameColumn="Circunscripcion" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="Circunscripcion" captionColumn="Circunscripcion">
+            </Level>
+            <Level name="Localidad" visible="true" column="id_localidad" nameColumn="Localidad" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="Localidad" captionColumn="Localidad">
+            </Level>
+            <Level name="Zona" visible="true" column="id_zona" nameColumn="Zona" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="Zona" captionColumn="Zona">
+            </Level>
+            <Level name="Barrio" visible="true" column="id_barrio" nameColumn="Barrio" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="Barrio / Nº de Chacra" captionColumn="Barrio">
+            </Level>
+        </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Origen" caption="Dependencia de Origen">
+        <Hierarchy name="todas" visible="true" hasAll="true" allMemberName="todas" primaryKey="id_dim_origen" caption="Todas las Dependencias">
+            <Table name="dim_origen">
+            </Table>
+            <Level name="Organismo" visible="true" column="id_organismo" nameColumn="Organismo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Organismo" captionColumn="Organismo">
+            </Level>
+            <Level name="Dependencia" visible="true" column="id_dim_origen" nameColumn="nombre_origen" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="Dependencia" captionColumn="nombre_origen">
+            </Level>
+        </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Lugar del Hecho" caption="Lugar del Hecho">
+        <Hierarchy name="todos" visible="true" hasAll="true" allMemberName="todos" primaryKey="id_dimLugar" caption="Todos los Lugares">
+            <Table name="dim_lugar_hecho">
+            </Table>
+            <Level name="nombre_lugar" visible="true" column="id_dimLugar" nameColumn="nombre_lugar" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Lugar del Hecho" captionColumn="nombre_lugar">
+            </Level>
+        </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Denunciante" caption="Tipo de Denunciante">
+        <Hierarchy name="todos" visible="true" hasAll="true" allMemberName="todos" primaryKey="id_dim_denunciante" caption="Todos los Tipos de Denunciantes">
+            <Table name="dim_tipo_denunciante">
+            </Table>
+            <Level name="descripcion" visible="true" column="id_dim_denunciante" nameColumn="descripcion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Denunciante" captionColumn="descripcion">
+            </Level>
+        </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Motivo" caption="Motivo de la Violencia">
+        <Hierarchy name="todos" visible="true" hasAll="true" allMemberName="todos" primaryKey="id_dim_motivo" caption="Todos los Motivos">
+            <Table name="dim_motivo">
+            </Table>
+            <Level name="descripcion" visible="true" column="id_dim_motivo" nameColumn="descripcion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Motivo de la Violencia" captionColumn="descripcion">
+            </Level>
+        </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Rango Etario" caption="Rango Etario">
+        <Hierarchy name="todos" visible="true" hasAll="true" allMemberName="todos" primaryKey="id_dim_etapa" caption="Todos los Rangos">
+            <Table name="dim_rango_etario">
+            </Table>
+            <Level name="rango" visible="true" column="id_dim_etapa" nameColumn="rango" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="Rango Etario" captionColumn="rango">
+            </Level>
+        </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Juzgado">
+        <Hierarchy name="todos" visible="true" hasAll="true" allMemberName="todos" primaryKey="id_dim_juzgado" caption="Todos los Juzgados">
+            <Table name="dim_juzgado">
+            </Table>
+            <Level name="Tipo" visible="true" column="id_tipo" nameColumn="tipo_juzgado" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Tipo" captionColumn="tipo_juzgado">
+            </Level>
+            <Level name="Juzgado" visible="true" column="id_juzgado" nameColumn="nombre_juzgado" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Juzgado" captionColumn="nombre_juzgado">
+            </Level>
+        </Hierarchy>
+    </Dimension>
+    <Cube name="Victima" caption="Cubo Victima" visible="true" cache="true" enabled="true">
+        <Table name="tabla_victima">
+        </Table>
+        <DimensionUsage source="Ubicacion" name="Ubicacion" caption="Ubicacion Geografica" visible="true" foreignKey="id_dimUbicacion" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Tiempo" name="Tiempo" caption="Tiempo" visible="true" foreignKey="id_tiempo" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Genero" name="Genero" caption="Genero" visible="true" foreignKey="id_dim_genero" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Ocupacion" name="Ocupacion" caption="Ocupacion" visible="true" foreignKey="id_dim_ocupacion" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Rango Etario" name="Rango Etario" caption="Rango Etario" visible="true" foreignKey="id_dim_etapa" highCardinality="false">
+        </DimensionUsage>
+        <Measure name="cantidad_victimas" column="id_victima" datatype="Integer" aggregator="distinct-count" caption="Cantidad de Víctimas" description="Indica la Cantidad de Víctimas de Violencia Familiar" visible="true">
+        </Measure>
+        <Measure name="cantidad_vg" column="violencia_genero" datatype="Integer" aggregator="sum" caption="Cantidad de Violencia de Género" description="Indica la Cantidad de Víctimas de Violencia de Género" visible="true">
+        </Measure>
+        <Measure name="menor_año" column="menor_1" datatype="Integer" aggregator="sum" caption="Tiempo de Violencia menor a 1 año" description="Indica la Cantidad de Víctimas que sufren violencia por un tiempo menor a 1 año hasta realizar la denuncia" visible="false">
+        </Measure>
+        <Measure name="hasta_5_años" column="menor_5" datatype="Integer" aggregator="sum" caption="Tiempo de Violencia entre 1 y 5 años" description="Indica la Cantidad de Víctimas que sufren violencia por un tiempo entre 1 y 5 años hasta realizar la denuncia" visible="false">
+        </Measure>
+        <Measure name="mayor_5_años" column="mas_5" datatype="Integer" aggregator="sum" caption="Tiempo de Violencia mayor a 5 años" description="Indica la Cantidad de Víctimas que sufren violencia por un tiempo mayor a 5 años hasta realizar la denuncia" visible="false">
+        </Measure>
+        <Measure name="primera_denuncia" column="primera_denuncia" datatype="Integer" aggregator="sum" caption="Primera Denuncia" description="Indica la Cantidad de Víctimas que realizan la denuncia por primera vez" visible="false">
+        </Measure>
+        <CalculatedMember name="variacion_vg" formatString="#" caption="Variación Violencia de Género" description="Indica la Variación de Violencia de Género respecto a un periodo de tiempo anterior" formula="(([Measures].[cantidad_vg]) - ([Measures].[cantidad_vg], [Tiempo.todos].CurrentMember.PrevMember))" dimension="Measures" visible="true">
+        </CalculatedMember>
+        <CalculatedMember name="porc_v_vg" caption="Variación (%) Violencia de Género" description="Indica la Variación porcentual de Violencia de Género respecto a un periodo de tiempo anterior" formula="(([Measures].[variacion_vg])/([Measures].[cantidad_vg], [Tiempo.todos].CurrentMember.PrevMember))" dimension="Measures" visible="true">
+            <CalculatedMemberProperty name="FORMAT_STRING" value="0.0 %">
+            </CalculatedMemberProperty>
+        </CalculatedMember>
+        <CalculatedMember name="tasa_vg" formatString="#" caption="Tasa Violencia de Género" description="Indica la Tasa de Violencia de Género por cada 1.000 (mil) víctimas de Violencia Familiar" formula="(([Measures].[cantidad_vg]/[Measures].[cantidad_victimas])*1000)" dimension="Measures" visible="true">
+        </CalculatedMember>
+        <CalculatedMember name="variacion_victima" formatString="#" caption="Variación Víctimas" description="Indica la Variación de la cantidad de Víctimas respecto a un periodo de tiempo anterior" formula="(([Measures].[cantidad_victimas]) - ([Measures].[cantidad_victimas], [Tiempo.todos].CurrentMember.PrevMember))" dimension="Measures" visible="true">
+        </CalculatedMember>
+        <CalculatedMember name="porc_v_victima" caption="Variación (%) Víctimas" description="Indica la Variación porcentual de la cantidad de Victimas respecto a un periodo de tiempo anterior" formula="(([Measures].[variacion_victima])/([Measures].[cantidad_victimas], [Tiempo.todos].CurrentMember.PrevMember))" dimension="Measures" visible="true">
+            <CalculatedMemberProperty name="FORMAT_STRING" value="0.0 %">
+            </CalculatedMemberProperty>
+        </CalculatedMember>
+        <CalculatedMember name="tasa_menor_1_año" formatString="#" caption="Tasa Tiempo menor a 1 año" description="Indica la Tasa de Tiempo de Violencia menor a 1 año por cada 1.000 (mil) víctimas de Violencia Familiar" formula="(([Measures].[menor_año])/([Measures].[primera_denuncia])*1000)" dimension="Measures" visible="true">
+        </CalculatedMember>
+        <CalculatedMember name="tasa_hasta_5_años" formatString="#" caption="Tasa Tiempo entre 1 y 5 años" description="Indica la Tasa de Tiempo de Violencia entre 1 y 5 años por cada 1.000 (mil) víctimas de Violencia Familiar" formula="(([Measures].[hasta_5_años])/([Measures].[primera_denuncia])*1000)" dimension="Measures" visible="true">
+        </CalculatedMember>
+        <CalculatedMember name="tasa_mayor_5_años" formatString="#" caption="Tasa Tiempo mayor a 5 años" description="Indica la Tasa de Tiempo de Violencia mayor a 5 años por cada 1.000 (mil) víctimas de Violencia Familiar" formula="(([Measures].[mayor_5_años])/([Measures].[primera_denuncia])*1000)" dimension="Measures" visible="true">
+        </CalculatedMember>
+        <CalculatedMember name="vg_trim_anterior" formatString="#" caption="Violencia de Genero Trim. del Año Ant." description="Indica la Variacion en la cantidad de Violencia de Genero respecto al Trimestre del año anterior" formula="([Measures].[cantidad_vg], PARALLELPERIOD([Tiempo.todos].[Trimestre].CurrentMember, 4))" dimension="Measures" visible="true">
+        </CalculatedMember>
+        <CalculatedMember name="porc_vg_anterior" caption="% V. de Ge Trim. del Año Anterior" description="Indica la Variacion porcentual en la cantidad de Violencia de Genero respecto al Trimestre del año anterior" formula="(([Measures].[cantidad_vg] - [Measures].[vg_trim_anterior])/[Measures].[cantidad_vg])" dimension="Measures" visible="true">
+            <CalculatedMemberProperty name="FORMAT_STRING" value="0.0 %">
+            </CalculatedMemberProperty>
+        </CalculatedMember>
+    </Cube>
+    <Cube name="Agresor" caption="Cubo Agresor" visible="true" cache="true" enabled="true">
+        <Table name="tabla_agresor">
+        </Table>
+        <DimensionUsage source="Motivo" name="Motivo" caption="Motivo de Violencia" visible="true" foreignKey="id_dim_motivo" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Ubicacion" name="Ubicacion" caption="Ubicacion Geografica" visible="true" foreignKey="id_dim_ubicacion" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Rango Etario" name="Rango Etario" caption="Rango Etario" visible="true" foreignKey="id_dim_etapa" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Ocupacion" name="Ocupacion" caption="Ocupacion" visible="true" foreignKey="id_dim_ocupacion" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Tiempo" name="Tiempo" caption="Tiempo" visible="true" foreignKey="id_tiempo" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Genero" name="Genero" caption="Genero" visible="true" foreignKey="id_dim_genero" highCardinality="false">
+        </DimensionUsage>
+        <Measure name="cantidad_agresor" column="id_agresor" datatype="Integer" aggregator="distinct-count" caption="Total de Agresores" description="Indica la Cantidad de Agresores de Violencia Familiar" visible="true">
+        </Measure>
+        <Measure name="psiquica_moral" column="psico_verb" datatype="Integer" aggregator="sum" caption="Medio empleado: Psiquica/Moral" description="Indica la Cantidad de Agresores que ejercen Violencia Psiquica/Moral" visible="true">
+        </Measure>
+        <Measure name="fisica" column="fisica" datatype="Integer" aggregator="sum" caption="Medio empleado: Fisica" description="Indica la Cantidad de Agresores que ejercen Violencia Fisica" visible="true">
+        </Measure>
+        <Measure name="economica" column="economica" datatype="Integer" aggregator="sum" caption="Medio empleado: Economica" description="Indica la Cantidad de Agresores que ejercen Violencia Economica" visible="true">
+        </Measure>
+        <Measure name="sexual" column="sexual" datatype="Integer" aggregator="sum" caption="Medio empleado: Sexual" description="Indica la Cantidad de Agresores que ejercen Violencia Sexual" visible="true">
+        </Measure>
+        <Measure name="pareja" column="pareja" datatype="Integer" aggregator="sum" caption="Modalidad: Pareja" description="Indica la Cantidad de Agresores que ejercen Violencia de Pareja" visible="true">
+        </Measure>
+        <Measure name="menores_adolesc" column="menores_adolesc" datatype="Integer" aggregator="sum" caption="Modalidad: Niños/Adolescentes" description="Indica la Cantidad de Agresores que ejercen Violencia a Niños/Adolescentes" visible="true">
+        </Measure>
+        <Measure name="ancianos" column="ancianos" datatype="Integer" aggregator="sum" caption="Modalidad: Ancianos" description="Indica la Cantidad de Agresores que ejercen Violencia contra Ancianos" visible="true">
+        </Measure>
+        <Measure name="intrafamiliar" column="familiares" datatype="Integer" aggregator="sum" caption="Modalidad: Intrafamiliar" description="Indica la Cantidad de Agresores que ejercen Violencia Intrafamiliar" visible="true">
+        </Measure>
+        <CalculatedMember name="variacion_agresor" formatString="#" caption="Variacion Agresores" description="Indica la Variacion de la cantidad de Agresores respecto a un periodo de tiempo anterior" formula="(([Measures].[cantidad_agresor]) - ([Measures].[cantidad_agresor], [Tiempo.todos].CurrentMember.PrevMember))" dimension="Measures" visible="true">
+        </CalculatedMember>
+        <CalculatedMember name="porc_v_agresor" caption="Variacion (%) Agresores" description="Indica la Variacion porcentual de la cantidad de Agresores respecto a un periodo de tiempo anterior" formula="(([Measures].[variacion_agresor])/([Measures].[cantidad_agresor], [Tiempo.todos].CurrentMember.PrevMember))" dimension="Measures" visible="true">
+            <CalculatedMemberProperty name="FORMAT_STRING" value="0.0 %">
+            </CalculatedMemberProperty>
+        </CalculatedMember>
+        <CalculatedMember name="agr_trim_anterior" formatString="#" caption="Agresores Trim. del Año Anterior" description="Indica la Variacion en la cantidad de Agresores respecto al Trimestre del año anterior" formula="([Measures].[cantidad_agresor], PARALLELPERIOD([Tiempo.todos].[Trimestre].CurrentMember, 4))" dimension="Measures" visible="true">
+        </CalculatedMember>
+        <CalculatedMember name="porc_agr_anterior" caption="% Agresores Trim. del Año Anterior" description="Indica la Variacion porcentual en la cantidad de Agresores respecto al Trimestre del año anterior" formula="(([Measures].[cantidad_agresor] - [Measures].[agr_trim_anterior])/[Measures].[cantidad_agresor])" dimension="Measures" visible="true">
+            <CalculatedMemberProperty name="FORMAT_STRING" value="0.0 %">
+            </CalculatedMemberProperty>
+        </CalculatedMember>
+    </Cube>
+    <Cube name="Denuncia" caption="Cubo Denuncia" visible="true" cache="true" enabled="true">
+        <Table name="tabla_denuncia">
+        </Table>
+        <DimensionUsage source="Denunciante" name="Denunciante" caption="Tipo de Denunciante" visible="true" foreignKey="id_dim_denunciante" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Lugar del Hecho" name="Lugar del Hecho" caption="Lugar del Hecho" visible="true" foreignKey="id_dim_lugar" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Origen" name="Origen" caption="Dependencia de Origen" visible="true" foreignKey="id_dim_origen" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Tiempo" name="Tiempo" caption="Tiempo" visible="true" foreignKey="id_dim_tiempo" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Ubicacion" name="Ubicacion" caption="Ubicacion Geografica" visible="true" foreignKey="id_dimUbicacion" highCardinality="false">
+        </DimensionUsage>
+        <DimensionUsage source="Juzgado" name="Juzgado" caption="Juzgados" visible="true" foreignKey="id_dim_juzgado" highCardinality="false">
+        </DimensionUsage>
+        <Measure name="cantidad_denuncia" column="id_expte" datatype="Integer" aggregator="distinct-count" caption="Total de Denuncias" description="Indica la Cantidad de Denuncias de Violencia Familiar" visible="true">
+        </Measure>
+        <Measure name="tiempo_primera_medida" column="tiempo_hora" datatype="Integer" formatString="0 horas" aggregator="avg" caption="Tiempo de 1ra. Medida" description="Indica el tiempo promedio (en horas) que tardan los Juzgados en dictaminar una medida" visible="true">
+        </Measure>
+        <Measure name="cantidad_juzgado_paz" column="id_medida" aggregator="count" caption="Cantidad de Medidas Tomadas" description="Indica la Cantidad de Medidas Tomadas por los distintos Juzgados" visible="true">
+        </Measure>
+        <Measure name="tiempo_ingreso" column="tiempo_registro_ingreso" formatString="0 dias" aggregator="avg" caption="Tiempo de Ingreso al JVF" description="Indica el tiempo promedio (en dias) que tardan las denuncias en ingresar al Juzgado de Violencia Familiar" visible="true">
+        </Measure>
+        <CalculatedMember name="variacion_denuncia" formatString="#" caption="Variacion Denuncias" description="Indica la Variacion de la cantidad de Denuncias respecto a un periodo de tiempo anterior" formula="(([Measures].[cantidad_denuncia]) - ([Measures].[cantidad_denuncia], [Tiempo.todos].CurrentMember.PrevMember))" dimension="Measures" visible="true">
+        </CalculatedMember>
+        <CalculatedMember name="porc_v_denuncia" caption="Variacion (%) Denuncias" description="Indica la Variacion porcentual de la cantidad de Denuncias respecto a un periodo de tiempo anterior" formula="(([Measures].[variacion_denuncia])/([Measures].[cantidad_denuncia], [Tiempo.todos].CurrentMember.PrevMember))" dimension="Measures" visible="true">
+            <CalculatedMemberProperty name="FORMAT_STRING" value="0.0 %">
+            </CalculatedMemberProperty>
+        </CalculatedMember>
+        <CalculatedMember name="tiempo_ley" formatString="#" caption="Limite (Horas)" description="Indica el limite de tiempo (en horas) que tienen los Juzgados por Ley para dictaminar una medida" formula="48" dimension="Measures" visible="true">
+        </CalculatedMember>
+        <CalculatedMember name="den_trim_anterior" formatString="#" caption="Denuncias Trim. del Año Anterior" description="Indica la Variacion en la cantidad de Denuncias respecto al Trimestre del año anterior" formula="([Measures].[cantidad_denuncia], PARALLELPERIOD([Tiempo.todos].[Trimestre].CurrentMember, 4))" dimension="Measures" visible="true">
+        </CalculatedMember>
+        <CalculatedMember name="porc_trim_anterior" caption="% Denuncias Trim. del Año Anterior" description="Indica la Variacion porcentual en la cantidad de Denuncias respecto al Trimestre del año anterior" formula="(([Measures].[cantidad_denuncia] - [Measures].[den_trim_anterior])/[Measures].[cantidad_denuncia])" dimension="Measures" visible="true">
+            <CalculatedMemberProperty name="FORMAT_STRING" value="0.0 %">
+            </CalculatedMemberProperty>
+        </CalculatedMember>
+    </Cube>
+</Schema>
